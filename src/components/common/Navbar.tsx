@@ -1,8 +1,8 @@
 import { ShoppingCart } from "lucide-react";
 
-const navbar = () => {
+const Navbar = () => {
   return (
-    <div className="shadow-md h-14 py-4 px-8 flex">
+    <div className="shadow-md h-14 py-4 px-8 flex items-center">
       <div className="flex-2 w-full text-center">
         <h1 className="font-bold">Shop Cart</h1>
       </div>
@@ -15,4 +15,4 @@ const navbar = () => {
     </div>
   );
 };
-export default navbar;
+export default Navbar;
