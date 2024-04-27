@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Products = () => {
+  const [products, setProducts] = useState<[]>([]);
+
   useEffect(() => {
     const getAllProducts = async () => {
       const { data } = await axios.get("https://dummyjson.com/products");
-      console.log(data);
+      setProducts(data.products);
     };
 
     getAllProducts();
