@@ -1,8 +1,9 @@
+import { Product } from "@/types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Products = () => {
-  const [products, setProducts] = useState<[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const getAllProducts = async () => {
