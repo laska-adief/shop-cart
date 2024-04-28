@@ -1,5 +1,5 @@
 import { Product } from "@/types";
-import { Card, CardContent, CardTitle } from "../ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 
 const ProductCard = ({ data }: { data: Product }) => {
   return (
@@ -8,8 +8,10 @@ const ProductCard = ({ data }: { data: Product }) => {
         <div className="h-56">
           <img src={data.thumbnail} alt={data.title} className="h-full w-full object-cover rounded-md" />
         </div>
-        <CardTitle className="py-2">{data.title}</CardTitle>
-        <p>${data.price}</p>
+        <div className="flex justify-between py-4">
+          <CardTitle className="">{data.title}</CardTitle>
+          <CardDescription className="font-medium text-lg pl-4">${data.price}</CardDescription>
+        </div>
       </CardContent>
     </Card>
   );
