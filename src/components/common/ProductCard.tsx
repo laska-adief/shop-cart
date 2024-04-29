@@ -8,8 +8,8 @@ const ProductCard = ({ data }: { data: Product }) => {
         <div className="h-56">
           <img src={data.thumbnail} alt={data.title} className="h-full w-full object-cover rounded-md" />
         </div>
-        <div className="flex justify-between py-4">
-          <CardTitle className="">{data.title}</CardTitle>
+        <div className="flex justify-between py-4 h-20">
+          <CardTitle className="text-lg">{data.title}</CardTitle>
           <CardDescription className="font-medium text-lg pl-4">${data.price}</CardDescription>
         </div>
       </CardContent>
