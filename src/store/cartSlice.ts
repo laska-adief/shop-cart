@@ -1,10 +1,16 @@
 import { Product } from "@/types";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface CartSlice {
   product: Product[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initialState: CartSlice = {
   product: [],
 };
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {},
+});
