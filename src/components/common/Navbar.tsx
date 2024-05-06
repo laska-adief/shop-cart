@@ -2,7 +2,7 @@ import { ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <div className="shadow-md h-14 py-4 px-8 flex items-center">
+    <div className="shadow-md h-14 py-4 px-8 flex items-center bg-white sticky top-0 left-0 z-10">
       <div className="flex-2 w-full text-center">
         <h1 className="font-bold">Shop Cart</h1>
       </div>
