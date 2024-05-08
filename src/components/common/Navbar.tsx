@@ -8,7 +8,7 @@ const Navbar = () => {
       </div>
       <div className="flex-1 w-full relative">
         <ShoppingCart />
-        <div className="absolute -top-[5px] -right-[8px] bg-red-500 rounded-full w-4 h-4 flex justify-center items-center">
+        <div className="absolute -top-[5px] -right-[10px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
           <p className="text-xs text-white">1</p>
         </div>
       </div>
