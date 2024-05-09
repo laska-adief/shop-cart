@@ -2,8 +2,11 @@ import { Product } from "@/types";
 import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ data }: { data: Product }) => {
+  const dispatch = useDispatch();
+
   return (
     <Card className="">
       <CardContent>
