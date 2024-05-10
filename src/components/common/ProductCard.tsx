@@ -3,9 +3,14 @@ import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
 import { useDispatch } from "react-redux";
+import { addCart } from "@/store/cartSlice";
 
 const ProductCard = ({ data }: { data: Product }) => {
   const dispatch = useDispatch();
+
+  const handleAddToCart = (data: Product) => {
+    dispatch(addCart(data));
+  };
 
   return (
     <Card className="">
