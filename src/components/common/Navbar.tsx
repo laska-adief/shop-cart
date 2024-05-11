@@ -11,9 +11,11 @@ const Navbar = () => {
       </div>
       <div className="flex-1 w-full relative">
         <ShoppingCart />
-        <div className="absolute -top-[8px] -right-[10px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
-          <p className="text-xs text-white">1</p>
-        </div>
+        {cart > 0 && (
+          <div className="absolute -top-[8px] -right-[10px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
+            <p className="text-xs text-white">{cart}</p>
+          </div>
+        )}
       </div>
     </div>
   );
