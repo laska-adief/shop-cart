@@ -22,7 +22,7 @@ const ProductCard = ({ data }: { data: Product }) => {
           <CardTitle className="text-lg">{data.title}</CardTitle>
           <CardDescription className="font-medium text-lg pl-4">${data.price}</CardDescription>
         </div>
-        <Button>
+        <Button onClick={() => handleAddToCart(data)}>
           <ShoppingCart className="mr-2 h-5" />
           Add Cart
         </Button>
