@@ -4,12 +4,14 @@ import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addCart } from "@/store/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ data }: { data: Product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (data: Product) => {
     dispatch(addCart(data));
+    toast(`${data.title} added to cart!`, {});
   };
 
   return (
