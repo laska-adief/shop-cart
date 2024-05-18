@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Navbar = () => {
-  const cart = useSelector((state: RootState) => state.cart.product.length);
+  const cart = useSelector((state: RootState) => state.cart.product);
   return (
     <div className="shadow-md h-14 py-4 px-8 flex items-center bg-white sticky top-0 left-0 z-10">
       <div className="flex-2 w-full text-center">
@@ -14,9 +14,9 @@ const Navbar = () => {
         <PopoverTrigger>
           <div className="flex-1 w-full relative">
             <ShoppingCart />
-            {cart > 0 && (
+            {cart.length > 0 && (
               <div className="absolute -top-[8px] -right-[10px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
-                <p className="text-xs text-white">{cart}</p>
+                <p className="text-xs text-white">{cart.length}</p>
               </div>
             )}
           </div>
