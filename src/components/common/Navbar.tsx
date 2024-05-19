@@ -2,6 +2,7 @@ import { RootState } from "@/store/store";
 import { ShoppingCart } from "lucide-react";
 import { useSelector } from "react-redux";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Product } from "@/types";
 
 const Navbar = () => {
   const cart = useSelector((state: RootState) => state.cart.product);
@@ -21,10 +22,21 @@ const Navbar = () => {
             )}
           </div>
         </PopoverTrigger>
-        <PopoverContent className="w-80 bg-white mt-6 mr-3 p-4 rounded-sm shadow-2xl">
-          Place content for the popover here. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam culpa amet deleniti
-          doloremque, suscipit modi dignissimos officiis nobis, esse doloribus, eaque exercitationem minus mollitia optio? In libero totam
-          cumque non!
+        <PopoverContent className="w-80 max-h-[400px] overflow-y-auto bg-slate-100 mt-6 mr-3 p-4 rounded-sm shadow-2xl">
+          <div className="flex flex-col gap-4">
+            {cart.map((product: Product) => (
+              <div className="flex gap-4 bg-white p-2 rounded-md shadow-sm">
+                <div className="h-12 w-12">
+                  <img src={product.thumbnail} alt={product.title} className="h-full w-full object-cover rounded-md" />
+                </div>
+                <div>
+                  <p className="font-medium">{product.title}</p>
+                  <p>${product.price}</p>
+                  <p>Quantity : {product.quantity}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </PopoverContent>
       </Popover>
     </div>
