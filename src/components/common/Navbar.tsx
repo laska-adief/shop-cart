@@ -24,18 +24,26 @@ const Navbar = () => {
         </PopoverTrigger>
         <PopoverContent className="w-80 max-h-[400px] overflow-y-auto bg-slate-100 mt-6 mr-3 p-4 rounded-sm shadow-2xl">
           <div className="flex flex-col gap-4">
-            {cart.map((product: Product) => (
-              <div className="flex gap-4 bg-white p-2 rounded-md shadow-sm">
-                <div className="h-12 w-12">
-                  <img src={product.thumbnail} alt={product.title} className="h-full w-full object-cover rounded-md" />
+            {cart.length > 0 &&
+              cart.map((product: Product) => (
+                <div className="flex gap-4 bg-white p-2 rounded-md shadow-sm">
+                  <div className="h-12 w-12">
+                    <img src={product.thumbnail} alt={product.title} className="h-full w-full object-cover rounded-md" />
+                  </div>
+                  <div>
+                    <p className="font-medium">{product.title}</p>
+                    <p>${product.price}</p>
+                    <p>Quantity : {product.quantity}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-medium">{product.title}</p>
-                  <p>${product.price}</p>
-                  <p>Quantity : {product.quantity}</p>
-                </div>
+              ))}
+
+            {cart.length === 0 && (
+              <div className="flex flex-col items-center justify-center gap-6">
+                <ShoppingCart className="w-20 h-20" />
+                <p className="text-lg">Your Cart is Empty</p>
               </div>
-            ))}
+            )}
           </div>
         </PopoverContent>
       </Popover>
