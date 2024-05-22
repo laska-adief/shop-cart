@@ -1,11 +1,17 @@
 import { RootState } from "@/store/store";
 import { ShoppingCart, Trash2 } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Product } from "@/types";
+import { removeCart } from "@/store/cartSlice";
 
 const Navbar = () => {
   const cart = useSelector((state: RootState) => state.cart.product);
+  const dispatch = useDispatch();
+
+  const handleDeleteFromCart = (data: Product) => {
+    dispatch(removeCart(data));
+  };
   return (
     <div className="shadow-md h-14 py-4 px-8 flex items-center bg-white sticky top-0 left-0 z-10">
       <div className="flex-2 w-full text-center">
@@ -36,7 +42,7 @@ const Navbar = () => {
                       <p>${product.price}</p>
                       <p>Quantity : {product.quantity}</p>
                     </div>
-                    <div className="w-6 h-6 cursor-pointer text-red-500">
+                    <div className="w-6 h-6 cursor-pointer text-red-500" onClick={() => handleDeleteFromCart(product)}>
                       <Trash2 />
                     </div>
                   </div>
