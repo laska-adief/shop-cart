@@ -1,5 +1,5 @@
 import { RootState } from "@/store/store";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Trash2 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Product } from "@/types";
@@ -26,14 +26,19 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             {cart.length > 0 &&
               cart.map((product: Product) => (
-                <div className="flex gap-4 bg-white p-2 rounded-md shadow-sm">
+                <div key={product.id} className="flex gap-4 bg-white p-2 rounded-md shadow-sm">
                   <div className="h-12 w-12">
                     <img src={product.thumbnail} alt={product.title} className="h-full w-full object-cover rounded-md" />
                   </div>
-                  <div>
-                    <p className="font-medium">{product.title}</p>
-                    <p>${product.price}</p>
-                    <p>Quantity : {product.quantity}</p>
+                  <div className="w-full flex gap-2 items-center justify-between">
+                    <div>
+                      <p className="font-medium">{product.title}</p>
+                      <p>${product.price}</p>
+                      <p>Quantity : {product.quantity}</p>
+                    </div>
+                    <div className="w-6 h-6 cursor-pointer text-red-500">
+                      <Trash2 />
+                    </div>
                   </div>
                 </div>
               ))}
