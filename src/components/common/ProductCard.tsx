@@ -6,11 +6,19 @@ import { useDispatch } from "react-redux";
 import { addCart } from "@/store/cartSlice";
 import { toast } from "react-toastify";
 import { Input } from "../ui/input";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const ProductCard = ({ data }: { data: Product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
+
+  const handleSetQuantity = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value) {
+      const valueInt = parseInt(value);
+      setQuantity(valueInt);
+    }
+  };
 
   const handleAddToCart = (data: Product) => {
     dispatch(addCart(data));
@@ -32,7 +40,7 @@ const ProductCard = ({ data }: { data: Product }) => {
             <Button>
               <Minus />
             </Button>
-            <Input className="w-full text-center" value={quantity} />
+            <Input className="w-full text-center" value={quantity} onChange={handleSetQuantity} />
             <Button>
               <Plus />
             </Button>
