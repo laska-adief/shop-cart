@@ -20,6 +20,10 @@ const ProductCard = ({ data }: { data: Product }) => {
     }
   };
 
+  const handleIncrementQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
   const handleDecrementQuantity = () => {
     if (quantity > 0) {
       setQuantity((prev) => prev - 1);
@@ -47,7 +51,7 @@ const ProductCard = ({ data }: { data: Product }) => {
               <Minus />
             </Button>
             <Input className="w-full text-center" value={quantity} onChange={handleSetQuantity} />
-            <Button>
+            <Button onClick={handleIncrementQuantity}>
               <Plus />
             </Button>
           </div>
