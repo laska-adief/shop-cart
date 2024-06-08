@@ -20,6 +20,12 @@ const ProductCard = ({ data }: { data: Product }) => {
     }
   };
 
+  const handleDecrementQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+
   const handleAddToCart = (data: Product) => {
     dispatch(addCart(data));
     toast(`${data.title} added to cart!`, {});
@@ -37,7 +43,7 @@ const ProductCard = ({ data }: { data: Product }) => {
         </div>
         <div className="flex items-center gap-2 flex-col md:flex-row">
           <div className="flex items-center gap-4">
-            <Button>
+            <Button onClick={handleDecrementQuantity}>
               <Minus />
             </Button>
             <Input className="w-full text-center" value={quantity} onChange={handleSetQuantity} />
