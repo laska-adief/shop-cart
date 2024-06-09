@@ -31,7 +31,8 @@ const ProductCard = ({ data }: { data: Product }) => {
   };
 
   const handleAddToCart = (data: Product) => {
-    dispatch(addCart(data));
+    const newData = { ...data, quantity: quantity };
+    dispatch(addCart(newData));
     toast(`${data.title} added to cart!`, {});
   };
 
