@@ -34,6 +34,7 @@ const ProductCard = ({ data }: { data: Product }) => {
     const newData = { ...data, quantity: quantity };
     dispatch(addCart(newData));
     toast(`${data.title} added to cart!`, {});
+    setQuantity(0);
   };
 
   return (
