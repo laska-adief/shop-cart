@@ -16,12 +16,17 @@ const cartSlice = createSlice({
     addCart: (state, action) => {
       const cartProduct = state.product;
       const findProduct = cartProduct.find((product: Product) => product.id === action.payload.id);
-      let tempProduct: Product;
+
       if (findProduct) {
-        cartProduct.filter((product: Product) => (product.id === findProduct.id ? { ...product, quantity: product.quantity++ } : product));
+        state.product = cartProduct.map((product: Product) => {
+          if (product.id === findProduct.id) {
+            return { ...product, quantity: product.quantity + action.payload.quantity };
+          }
+          return product;
+        });
       } else {
-        tempProduct = { ...action.payload, quantity: 1 };
-        cartProduct.push(tempProduct);
+        const tempProduct = { ...action.payload };
+        state.product.push(tempProduct);
       }
     },
     removeCart: (state, action) => {
